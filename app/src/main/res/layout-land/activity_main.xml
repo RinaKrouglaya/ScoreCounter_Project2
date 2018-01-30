@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/SmallMargin"
+        android:background="@drawable/catchball_bg"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:context="com.udacity.myapplication.MainActivity">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/logo" />
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/teamA_name_text_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/teamB_name_text_input_layout"
+                android:layout_marginTop="@dimen/GapMargin"
+                android:layout_toRightOf="@id/logo"
+                android:textColorHint="@color/OrangeColor"
+
+                >
+
+                <EditText
+                    android:id="@+id/TeamA_Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/GapMargin"
+                    android:layout_marginRight="@dimen/GapMargin"
+                    android:gravity="center"
+                    android:hint="@string/TeamA_Hint"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="textCapWords"
+
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/teamB_name_text_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/GapMargin"
+                android:layout_marginTop="@dimen/GapMargin"
+                android:layout_toLeftOf="@id/logo"
+                android:textColorHint="@color/OrangeColor"
+
+                >
+
+                <EditText
+                    android:id="@+id/TeamB_Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/logo"
+                    android:gravity="center"
+                    android:hint="@string/TamB_Hint"
+                    android:imeOptions="flagNoExtractUi"
+                    android:inputType="textCapWords"
+                    android:lines="1"
+                    android:maxLines="1"
+
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/GapMargin"
+            android:background="@drawable/white_bg"
+            tools:context="com.udacity.myapplication.MainActivity">
+
+            <Button
+                android:id="@+id/R1TeamAPlus"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/green_bg"
+                android:gravity="center"
+                android:onClick="R1_TeamA_Plus"
+                android:text="@string/Plus"
+                android:textColor="@color/ButtonTextColor_White"
+                android:textSize="@dimen/SmallButtonTextSize"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/score_A_R1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/R1TeamAPlus"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:padding="@dimen/ScorePadding"
+                android:text="@string/ZeroScoreValue"
+                android:textColor="@color/ScoreColorBlack"
+                android:textSize="@dimen/ScoreTextSize" />
+
+            <Button
+                android:id="@+id/R1TeamAMinus"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/score_A_R1"
+                android:background="@drawable/green_bg"
+                android:gravity="center"
+                android:onClick="R1_TeamA_Minus"
+                android:text="@string/Minus"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:padding="@dimen/SmallMargin"
+                android:shadowColor="@color/OrangeColor"
+                android:shadowDx="5"
+                android:shadowDy="5"
+                android:shadowRadius="1"
+                android:text="@string/Round_1"
+                android:textColor="@color/ScoreColorBlack"
+                android:textSize="@dimen/LargeTextSize"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/R1TeamBMinus"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/score_B_R1"
+                android:background="@drawable/green_bg"
+                android:gravity="center"
+                android:onClick="R1_TeamB_Minus"
+                android:text="@string/Minus"
+                android:textColor="@color/ButtonTextColor_White"
+                android:textSize="@dimen/SmallButtonTextSize"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/score_B_R1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/R1TeamBPlus"
+                android:layout_toStartOf="@+id/R1TeamBPlus"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:padding="@dimen/ScorePadding"
+                android:text="@string/ZeroScoreValue"
+                android:textColor="@color/ScoreColorBlack"
+                android:textSize="@dimen/ScoreTextSize" />
+
+            <Button
+                android:id="@+id/R1TeamBPlus"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/green_bg"
+                android:gravity="center"
+                android:onClick="R1_TeamB_Plus"
+                android:text="@string/Plus"
+                android:textColor="@color/ButtonTextColor_White"
+                android:textSize="@dimen/SmallButtonTextSize"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/white_bg"
+            tools:context="com.udacity.myapplication.MainActivity">
+
+            <Button
+                android:id="@+id/R2TeamAPlus"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/green_bg"
+                android:gravity="center"
+                android:onClick="R2_TeamA_Plus"
+                android:text="@string/Plus"
+                android:textColor="@color/ButtonTextColor_White"
+                android:textSize="@dimen/SmallButtonTextSize"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/score_A_R2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/R2TeamAPlus"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:padding="@dimen/ScorePadding"
+                android:text="@string/ZeroScoreValue"
+                android:textColor="@color/ScoreColorBlack"
+                android:textSize="@dimen/ScoreTextSize" />
+
+            <Button
+                android:id="@+id/R2TeamAMinus"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/score_A_R2"
+                android:background="@drawable/green_bg"
+                android:gravity="center"
+                android:onClick="R2_TeamA_Minus"
+                android:text="@string/Minus"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:adjustViewBounds="true"
+                android:gravity="center"
+                android:padding="@dimen/SmallMargin"
+                android:shadowColor="@color/OrangeColor"
+                android:shadowDx="5"
+                android:shadowDy="5"
+                android:shadowRadius="1"
+                android:text="@string/Round_2"
+                android:textColor="@color/ScoreColorBlack"
+                android:textSize="@dimen/LargeTextSize"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/R2TeamBMinus"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/score_B_R2"
+                android:background="@drawable/green_bg"
+                android:gravity="center"
+                android:onClick="R2_TeamB_Minus"
+                android:text="@string/Minus"
+                android:textColor="@color/ButtonTextColor_White"
+                android:textSize="@dimen/SmallButtonTextSize"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/score_B_R2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/R2TeamBPlus"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:padding="@dimen/ScorePadding"
+                android:text="@string/ZeroScoreValue"
+                android:textColor="@color/ScoreColorBlack"
+                android:textSize="@dimen/ScoreTextSize" />
+
+            <Button
+                android:id="@+id/R2TeamBPlus"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/green_bg"
+                android:gravity="center"
+                android:onClick="R2_TeamB_Plus"
+                android:text="@string/Plus"
+                android:textColor="@color/ButtonTextColor_White"
+                android:textSize="@dimen/SmallButtonTextSize"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/white_bg"
+            tools:context="com.udacity.myapplication.MainActivity">
+
+            <Button
+                android:id="@+id/R3TeamAPlus"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:background="@drawable/green_bg"
+                android:gravity="center"
+                android:onClick="R3_TeamA_Plus"
+                android:text="@string/Plus"
+                android:textColor="@color/ButtonTextColor_White"
+                android:textSize="@dimen/SmallButtonTextSize"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/score_A_R3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/R3TeamAPlus"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:padding="@dimen/ScorePadding"
+                android:text="@string/ZeroScoreValue"
+                android:textColor="@color/ScoreColorBlack"
+                android:textSize="@dimen/ScoreTextSize" />
+
+            <Button
+                android:id="@+id/R3TeamAMinus"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/score_A_R3"
+                android:layout_toRightOf="@+id/score_A_R3"
+                android:background="@drawable/green_bg"
+                android:gravity="center"
+                android:onClick="R3_TeamA_Minus"
+                android:text="@string/Minus"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:adjustViewBounds="true"
+                android:gravity="center"
+                android:padding="@dimen/SmallMargin"
+                android:shadowColor="@color/OrangeColor"
+                android:shadowDx="5"
+                android:shadowDy="5"
+                android:shadowRadius="1"
+                android:text="@string/Round_3"
+                android:textColor="@color/ScoreColorBlack"
+                android:textSize="@dimen/LargeTextSize"
+                android:textStyle="bold"
+
+                />
+
+
+            <Button
+                android:id="@+id/R3TeamBMinus"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_toLeftOf="@+id/score_B_R3"
+                android:background="@drawable/green_bg"
+                android:gravity="center"
+                android:onClick="R3_TeamB_Minus"
+                android:text="@string/Minus"
+                android:textColor="@color/ButtonTextColor_White"
+                android:textSize="@dimen/SmallButtonTextSize"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/score_B_R3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/R3TeamBPlus"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:padding="@dimen/ScorePadding"
+                android:text="@string/ZeroScoreValue"
+                android:textColor="@color/ScoreColorBlack"
+                android:textSize="@dimen/ScoreTextSize" />
+
+            <Button
+                android:id="@+id/R3TeamBPlus"
+                style="@style/Widget.AppCompat.Button.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/green_bg"
+                android:gravity="center"
+                android:onClick="R3_TeamB_Plus"
+                android:text="@string/Plus"
+                android:textColor="@color/ButtonTextColor_White"
+                android:textSize="@dimen/SmallButtonTextSize"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:context="com.udacity.myapplication.MainActivity">
+
+            <Button
+                android:id="@+id/Final_Score_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/TopMargin"
+                android:adjustViewBounds="true"
+                android:background="@drawable/green_bg"
+                android:gravity="center"
+                android:onClick="add_final_score"
+                android:padding="@dimen/Padding8dp"
+                android:text="@string/Final_Score"
+                android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
+                android:textColor="@color/ButtonTextColor_White" />
+
+            <TextView
+                android:id="@+id/Final_Score_View"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/LargeMargin"
+                android:layout_marginTop="@dimen/TopMargin"
+                android:layout_toRightOf="@+id/Final_Score_Button"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:padding="@dimen/ScorePadding"
+                android:text="@string/DefaultFinalScore_0_0"
+                android:textColor="@color/ScoreColorBlack"
+                android:textSize="@dimen/ScoreTextSize" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/TopMargin"
+                android:background="@drawable/button_bg_round"
+                android:drawableLeft="@drawable/ball"
+                android:gravity="center"
+                android:onClick="ResetScore"
+                android:paddingRight="@dimen/PaddingResetButton"
+                android:text="@string/Reset"
+                android:textColor="@color/ScoreColorBlack"
+                android:textSize="@dimen/ResetButtonTextSize"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+    </TableLayout>
+
+</ScrollView>
+
+
+
+

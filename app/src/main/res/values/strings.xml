@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Catch Ball Counter</string>
+    <string name="TeamA_Hint">Team A Name</string>
+    <string name="TamB_Hint">Team B Name</string>
+    <string name="Plus">+</string>
+    <string name="ZeroScoreValue">00</string>
+    <string name="Minus">-</string>
+    <string name="Round_1">ROUND 1</string>
+    <string name="Round_2">ROUND 2</string>
+    <string name="Round_3">ROUND 3</string>
+    <string name="Final_Score">Final Score</string>
+    <string name="DefaultFinalScore_0_0">0:0</string>
+    <string name="Reset">RESET</string>
+    <item name="visible" type="id"/>
+    <item name="masked" type="id"/>
+
+
+</resources>
