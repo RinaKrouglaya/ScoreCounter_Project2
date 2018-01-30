@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/teamB_name_text_input_layout"
                 android:layout_marginTop="@dimen/GapMargin"
-                android:layout_toRightOf="@id/logo"
+                android:layout_toLeftOf="@id/logo"
                 android:textColorHint="@color/OrangeColor"
 
                 >
@@ -60,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/GapMargin"
                 android:layout_marginTop="@dimen/GapMargin"
-                android:layout_toLeftOf="@id/logo"
+                android:layout_toRightOf="@id/logo"
                 android:textColorHint="@color/OrangeColor"
 
                 >
