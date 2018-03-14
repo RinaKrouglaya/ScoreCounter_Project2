@@ -6,86 +6,89 @@
     android:layout_height="match_parent"
     android:keepScreenOn="true">
 
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_margin="@dimen/SmallMargin"
         android:background="@drawable/catchball_bg"
-        android:focusableInTouchMode="true"
-        android:orientation="horizontal">
+        android:focusableInTouchMode="true">
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/logo" />
+
+
+        <View
+            android:id="@+id/dummy"
+            android:layout_width="@dimen/DummyDim"
+            android:layout_height="@dimen/DummyDim"
+            android:layout_alignBottom="@id/logo"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible" />
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/teamA_name_text_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/teamB_name_text_input_layout"
+            android:layout_toLeftOf="@+id/dummy"
+            android:layout_toStartOf="@+id/dummy"
+            android:textColorHint="@color/OrangeColor">
+
+            <EditText
+                android:id="@+id/TeamA_Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/GapMargin"
+                android:layout_marginRight="@dimen/GapMargin"
+                android:gravity="center"
+                android:hint="@string/TeamA_Hint"
+                android:imeOptions="flagNoExtractUi"
+                android:inputType="textCapWords"
+                android:lines="1"
+                android:maxLines="1" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/teamB_name_text_input_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/logo"
+            android:layout_marginBottom="@dimen/GapMargin"
+            android:layout_toEndOf="@id/dummy"
+            android:layout_toRightOf="@id/dummy"
+            android:textColorHint="@color/OrangeColor">
+
+            <EditText
+                android:id="@+id/TeamB_Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/logo"
+                android:gravity="center"
+                android:hint="@string/TamB_Hint"
+                android:imeOptions="flagNoExtractUi"
+                android:inputType="textCapWords"
+                android:lines="1"
+                android:maxLines="1" />
+
+        </android.support.design.widget.TextInputLayout>
 
 
         <RelativeLayout
+            android:id="@+id/R1_Layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            tools:context="com.udacity.myapplication.MainActivity">
-
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/logo" />
-
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/teamA_name_text_input_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/teamB_name_text_input_layout"
-                android:layout_marginTop="@dimen/GapMargin"
-                android:layout_toLeftOf="@id/logo"
-                android:layout_toStartOf="@id/logo"
-                android:textColorHint="@color/OrangeColor">
-
-                <EditText
-                    android:id="@+id/TeamA_Name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="@dimen/GapMargin"
-                    android:layout_marginRight="@dimen/GapMargin"
-                    android:gravity="center"
-                    android:hint="@string/TeamA_Hint"
-                    android:imeOptions="flagNoExtractUi"
-                    android:inputType="textCapWords"
-
-                    />
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/teamB_name_text_input_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/GapMargin"
-                android:layout_marginTop="@dimen/GapMargin"
-                android:layout_toEndOf="@id/logo"
-                android:layout_toRightOf="@id/logo"
-                android:textColorHint="@color/OrangeColor">
-
-                <EditText
-                    android:id="@+id/TeamB_Name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@id/logo"
-                    android:gravity="center"
-                    android:hint="@string/TamB_Hint"
-                    android:imeOptions="flagNoExtractUi"
-                    android:inputType="textCapWords"
-                    android:lines="1"
-                    android:maxLines="1"
-
-                    />
-            </android.support.design.widget.TextInputLayout>
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/GapMargin"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/teamA_name_text_input_layout"
             android:background="@drawable/white_bg"
             tools:context="com.udacity.myapplication.MainActivity">
 
@@ -122,7 +125,7 @@
                 android:gravity="center"
                 android:onClick="R1_TeamA_Minus"
                 android:text="@string/Minus"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/ButtonTextColor_White"
                 android:textSize="@dimen/SmallButtonTextSize"
                 android:textStyle="bold" />
 
@@ -135,6 +138,8 @@
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/LargeMargin"
+                android:layout_marginStart="@dimen/LargeMargin"
                 android:layout_toLeftOf="@id/score_B_R1"
                 android:layout_toStartOf="@id/score_B_R1"
                 android:background="@drawable/green_bg"
@@ -167,13 +172,15 @@
                 android:textColor="@color/ButtonTextColor_White"
                 android:textSize="@dimen/SmallButtonTextSize"
                 android:textStyle="bold" />
-
         </RelativeLayout>
 
+
         <RelativeLayout
+            android:id="@+id/R2_Layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/GapMargin"
+            android:layout_below="@+id/R1_Layout"
+            android:layout_marginTop="@dimen/RoundTopMargin"
             android:background="@drawable/white_bg"
             tools:context="com.udacity.myapplication.MainActivity">
 
@@ -210,7 +217,7 @@
                 android:gravity="center"
                 android:onClick="R2_TeamA_Minus"
                 android:text="@string/Minus"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/ButtonTextColor_White"
                 android:textSize="@dimen/SmallButtonTextSize"
                 android:textStyle="bold" />
 
@@ -223,8 +230,9 @@
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/score_B_R2"
-                android:layout_toStartOf="@id/score_B_R2"
+                android:layout_alignParentBottom="true"
+                android:layout_toLeftOf="@+id/score_B_R2"
+                android:layout_toStartOf="@+id/score_B_R2"
                 android:background="@drawable/green_bg"
                 android:gravity="center"
                 android:onClick="R2_TeamB_Minus"
@@ -257,10 +265,13 @@
 
         </RelativeLayout>
 
+
         <RelativeLayout
+            android:id="@+id/R3_Layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/GapMargin"
+            android:layout_below="@+id/R2_Layout"
+            android:layout_marginTop="@dimen/RoundTopMargin"
             android:background="@drawable/white_bg"
             tools:context="com.udacity.myapplication.MainActivity">
 
@@ -269,6 +280,7 @@
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:background="@drawable/green_bg"
@@ -298,8 +310,8 @@
                 android:gravity="center"
                 android:onClick="R3_TeamA_Minus"
                 android:text="@string/Minus"
-                android:textColor="#FFFFFF"
-                android:textSize="@dimen/LargeTextSize"
+                android:textColor="@color/ButtonTextColor_White"
+                android:textSize="@dimen/SmallButtonTextSize"
                 android:textStyle="bold" />
 
 
@@ -313,8 +325,6 @@
                 style="@style/Widget.AppCompat.Button.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/LargeMargin"
-                android:layout_marginStart="@dimen/LargeMargin"
                 android:layout_toLeftOf="@id/score_B_R3"
                 android:layout_toStartOf="@id/score_B_R3"
                 android:background="@drawable/green_bg"
@@ -347,23 +357,24 @@
                 android:textSize="@dimen/SmallButtonTextSize"
                 android:textStyle="bold" />
 
-
         </RelativeLayout>
 
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/R3_Layout"
+            android:layout_centerHorizontal="true"
             tools:context="com.udacity.myapplication.MainActivity">
+
 
             <Button
                 android:id="@+id/Final_Score_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
                 android:layout_marginTop="@dimen/TopMargin"
-                android:adjustViewBounds="true"
                 android:background="@drawable/green_bg"
                 android:gravity="center"
                 android:onClick="add_final_score"
@@ -372,15 +383,13 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
                 android:textColor="@color/ButtonTextColor_White" />
 
+
             <TextView
                 android:id="@+id/Final_Score_View"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/LargeMargin"
-                android:layout_marginStart="@dimen/LargeMargin"
-                android:layout_marginTop="@dimen/TopMargin"
-                android:layout_toEndOf="@id/Final_Score_Button"
-                android:layout_toRightOf="@id/Final_Score_Button"
+                android:layout_below="@id/Final_Score_Button"
+                android:layout_centerHorizontal="true"
                 android:fontFamily="sans-serif-light"
                 android:gravity="center"
                 android:padding="@dimen/ScorePadding"
@@ -388,13 +397,22 @@
                 android:textColor="@color/ColorBlack"
                 android:textSize="@dimen/ScoreTextSize" />
 
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            tools:context="com.udacity.myapplication.MainActivity">
+
+
             <Button
+                android:id="@+id/reset_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="@dimen/TopMargin"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/PaddingResetButton"
                 android:background="@drawable/button_bg_round"
                 android:drawableLeft="@drawable/ball"
                 android:drawableStart="@drawable/ball"
@@ -407,12 +425,10 @@
                 android:textSize="@dimen/ResetButtonTextSize"
                 android:textStyle="bold" />
 
-
         </RelativeLayout>
-    </TableLayout>
+
+    </RelativeLayout>
+
 
 </ScrollView>
-
-
-
 

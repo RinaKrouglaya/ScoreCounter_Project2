@@ -5,8 +5,10 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -28,31 +30,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_main);
 
-        final TextInputLayout teamAInputLayout = (TextInputLayout) findViewById (R.id.teamA_name_text_input_layout);
-        final TextInputLayout teamBInputLayout = (TextInputLayout) findViewById (R.id.teamB_name_text_input_layout);
+        final TextInputLayout teamAInputLayout = findViewById (R.id.teamA_name_text_input_layout);
+        final TextInputLayout teamBInputLayout = findViewById (R.id.teamB_name_text_input_layout);
         ActionBar actionBar = getSupportActionBar ();
         actionBar.hide ();
+        getWindow ().setSoftInputMode (WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
     }
 
     public void getTeamAName() {
-        EditText simpleEditText = (EditText) findViewById (R.id.TeamA_Name);
+        EditText simpleEditText = findViewById (R.id.TeamA_Name);
         teamA_name = simpleEditText.getText ().toString ();
     }
 
     public void getTeamBName() {
-        EditText simpleEditText = (EditText) findViewById (R.id.TeamB_Name);
+        EditText simpleEditText = findViewById (R.id.TeamB_Name);
         teamB_name = simpleEditText.getText ().toString ();
     }
 
 
     public void displayTeamAName(String teamA_name) {
-        TextView timeView = (TextView) findViewById (R.id.TeamA_Name);
+        TextView timeView = findViewById (R.id.TeamA_Name);
         timeView.setText (String.valueOf (teamA_name));
     }
 
     public void displayTeamBName(String teamB_name) {
-        TextView timeView = (TextView) findViewById (R.id.TeamB_Name);
+        TextView timeView = findViewById (R.id.TeamB_Name);
         timeView.setText (String.valueOf (teamB_name));
     }
 
@@ -67,8 +70,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void R1_TeamA_Minus(View view) {
-        scoreTeamA_Round1 = scoreTeamA_Round1 - 1;
-        scoreTeamA_Final = scoreTeamA_Final - 1;
+        if (scoreTeamA_Round1 > 0) {
+            scoreTeamA_Round1 = scoreTeamA_Round1 - 1;
+            scoreTeamA_Final = scoreTeamA_Final - 1;
+        } else Toast.makeText (this, R.string.ifNegative, Toast.LENGTH_SHORT).show ();
         displayForTeamA_R1 (scoreTeamA_Round1);
 
     }
@@ -77,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
      * Displays the given score for Team A Round 1.
      */
     public void displayForTeamA_R1(int score) {
-        TextView scoreView = (TextView) findViewById (R.id.score_A_R1);
+        TextView scoreView = findViewById (R.id.score_A_R1);
 
         String scoreA_R1 = String.format ("%02d", score);
         scoreView.setText (scoreA_R1);
@@ -94,8 +99,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void R2_TeamA_Minus(View view) {
-        scoreTeamA_Round2 = scoreTeamA_Round2 - 1;
-        scoreTeamA_Final = scoreTeamA_Final - 1;
+        if (scoreTeamA_Round2 > 0) {
+            scoreTeamA_Round2 = scoreTeamA_Round2 - 1;
+            scoreTeamA_Final = scoreTeamA_Final - 1;
+        } else Toast.makeText (this, R.string.ifNegative, Toast.LENGTH_SHORT).show ();
         displayForTeamA_R2 (scoreTeamA_Round2);
 
     }
@@ -104,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
      * Displays the given score for Team A Round 2.
      */
     public void displayForTeamA_R2(int score) {
-        TextView scoreView = (TextView) findViewById (R.id.score_A_R2);
+        TextView scoreView = findViewById (R.id.score_A_R2);
         String scoreA_R2 = String.format ("%02d", score);
         scoreView.setText (scoreA_R2);
     }
@@ -120,8 +127,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void R3_TeamA_Minus(View view) {
-        scoreTeamA_Round3 = scoreTeamA_Round3 - 1;
-        scoreTeamA_Final = scoreTeamA_Final - 1;
+        if (scoreTeamA_Round3 > 0) {
+            scoreTeamA_Round3 = scoreTeamA_Round3 - 1;
+            scoreTeamA_Final = scoreTeamA_Final - 1;
+        } else Toast.makeText (this, R.string.ifNegative, Toast.LENGTH_SHORT).show ();
+
         displayForTeamA_R3 (scoreTeamA_Round3);
 
     }
@@ -130,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
      * Displays the given score for Team A Round 3.
      */
     public void displayForTeamA_R3(int score) {
-        TextView scoreView = (TextView) findViewById (R.id.score_A_R3);
+        TextView scoreView = findViewById (R.id.score_A_R3);
         String scoreA_R3 = String.format ("%02d", score);
         scoreView.setText (scoreA_R3);
     }
@@ -147,8 +157,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void R1_TeamB_Minus(View view) {
-        scoreTeamB_Round1 = scoreTeamB_Round1 - 1;
-        scoreTeamB_Final = scoreTeamB_Final - 1;
+        if (scoreTeamB_Round1 > 0) {
+            scoreTeamB_Round1 = scoreTeamB_Round1 - 1;
+            scoreTeamB_Final = scoreTeamB_Final - 1;
+        } else Toast.makeText (this, R.string.ifNegative, Toast.LENGTH_SHORT).show ();
         displayForTeamB_R1 (scoreTeamB_Round1);
 
 
@@ -158,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
      * Displays the given score for Team B Round 1.
      */
     public void displayForTeamB_R1(int score) {
-        TextView scoreView = (TextView) findViewById (R.id.score_B_R1);
+        TextView scoreView = findViewById (R.id.score_B_R1);
         String scoreB_R1 = String.format ("%02d", score);
         scoreView.setText (scoreB_R1);
     }
@@ -174,8 +186,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void R2_TeamB_Minus(View view) {
-        scoreTeamB_Round2 = scoreTeamB_Round2 - 1;
-        scoreTeamB_Final = scoreTeamB_Final - 1;
+        if (scoreTeamB_Round2 > 0) {
+            scoreTeamB_Round2 = scoreTeamB_Round2 - 1;
+            scoreTeamB_Final = scoreTeamB_Final - 1;
+        } else Toast.makeText (this, R.string.ifNegative, Toast.LENGTH_SHORT).show ();
+
         displayForTeamB_R2 (scoreTeamB_Round2);
 
     }
@@ -185,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
      * Displays the given score for Team B Round 2.
      */
     public void displayForTeamB_R2(int score) {
-        TextView scoreView = (TextView) findViewById (R.id.score_B_R2);
+        TextView scoreView = findViewById (R.id.score_B_R2);
 
         String scoreB_R2 = String.format ("%02d", score);
         scoreView.setText (scoreB_R2);
@@ -201,8 +216,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void R3_TeamB_Minus(View view) {
-        scoreTeamB_Round3 = scoreTeamB_Round3 - 1;
-        scoreTeamB_Final = scoreTeamB_Final - 1;
+        if (scoreTeamB_Round3 > 0) {
+            scoreTeamB_Round3 = scoreTeamB_Round3 - 1;
+            scoreTeamB_Final = scoreTeamB_Final - 1;
+        } else Toast.makeText (this, R.string.ifNegative, Toast.LENGTH_SHORT).show ();
+
         displayForTeamB_R3 (scoreTeamB_Round3);
 
 
@@ -212,7 +230,7 @@ public class MainActivity extends AppCompatActivity {
      * Displays the given score for Team B Round 2.
      */
     public void displayForTeamB_R3(int score) {
-        TextView scoreView = (TextView) findViewById (R.id.score_B_R3);
+        TextView scoreView = findViewById (R.id.score_B_R3);
 
         String scoreB_R3 = String.format ("%02d", score);
         scoreView.setText (scoreB_R3);
@@ -233,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
 
         String final_score_string = String.valueOf (scoreA) + ":" + String.valueOf (scoreB);
 
-        TextView scoreView = (TextView) findViewById (R.id.Final_Score_View);
+        TextView scoreView = findViewById (R.id.Final_Score_View);
         scoreView.setText (String.valueOf (final_score_string));
     }
 

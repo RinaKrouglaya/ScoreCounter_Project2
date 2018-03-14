@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Catch Ball Counter</string>
+    <string name="app_name">CatchBall Counter</string>
     <string name="TeamA_Hint">Team A Name</string>
     <string name="TamB_Hint">Team B Name</string>
     <string name="Plus">+</string>
@@ -11,6 +11,7 @@
     <string name="Final_Score">Final Score</string>
     <string name="DefaultFinalScore_0_0">0:0</string>
     <string name="Reset">RESET</string>
+    <string name="ifNegative">Can only be a positive value</string>
     <item name="visible" type="id"/>
     <item name="masked" type="id"/>
 
