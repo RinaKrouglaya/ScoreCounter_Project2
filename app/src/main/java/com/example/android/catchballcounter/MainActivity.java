@@ -62,14 +62,14 @@ public class MainActivity extends AppCompatActivity {
 
     // Round 1, Team A
 
-    public void R1_TeamA_Plus(View view) {
+    public void r1_TeamA_Plus(View view) {
         scoreTeamA_Round1 = scoreTeamA_Round1 + 1;
         scoreTeamA_Final = scoreTeamA_Final + 1;
         displayForTeamA_R1 (scoreTeamA_Round1);
 
     }
 
-    public void R1_TeamA_Minus(View view) {
+    public void r1_TeamA_Minus(View view) {
         if (scoreTeamA_Round1 > 0) {
             scoreTeamA_Round1 = scoreTeamA_Round1 - 1;
             scoreTeamA_Final = scoreTeamA_Final - 1;
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Round 2, Team A
 
-    public void R2_TeamA_Plus(View view) {
+    public void r2_TeamA_Plus(View view) {
         scoreTeamA_Round2 = scoreTeamA_Round2 + 1;
         scoreTeamA_Final = scoreTeamA_Final + 1;
         displayForTeamA_R2 (scoreTeamA_Round2);
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void R2_TeamA_Minus(View view) {
+    public void r2_TeamA_Minus(View view) {
         if (scoreTeamA_Round2 > 0) {
             scoreTeamA_Round2 = scoreTeamA_Round2 - 1;
             scoreTeamA_Final = scoreTeamA_Final - 1;
@@ -119,14 +119,14 @@ public class MainActivity extends AppCompatActivity {
 
     // Round 3, Team A
 
-    public void R3_TeamA_Plus(View view) {
+    public void r3_TeamA_Plus(View view) {
         scoreTeamA_Round3 = scoreTeamA_Round3 + 1;
         scoreTeamA_Final = scoreTeamA_Final + 1;
         displayForTeamA_R3 (scoreTeamA_Round3);
 
     }
 
-    public void R3_TeamA_Minus(View view) {
+    public void r3_TeamA_Minus(View view) {
         if (scoreTeamA_Round3 > 0) {
             scoreTeamA_Round3 = scoreTeamA_Round3 - 1;
             scoreTeamA_Final = scoreTeamA_Final - 1;
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Round 1, Team B
 
-    public void R1_TeamB_Plus(View view) {
+    public void r1_TeamB_Plus(View view) {
         scoreTeamB_Round1 = scoreTeamB_Round1 + 1;
         scoreTeamB_Final = scoreTeamB_Final + 1;
         displayForTeamB_R1 (scoreTeamB_Round1);
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void R1_TeamB_Minus(View view) {
+    public void r1_TeamB_Minus(View view) {
         if (scoreTeamB_Round1 > 0) {
             scoreTeamB_Round1 = scoreTeamB_Round1 - 1;
             scoreTeamB_Final = scoreTeamB_Final - 1;
@@ -177,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Round 2, Team B
 
-    public void R2_TeamB_Plus(View view) {
+    public void r2_TeamB_Plus(View view) {
         scoreTeamB_Round2 = scoreTeamB_Round2 + 1;
         scoreTeamB_Final = scoreTeamB_Final + 1;
         displayForTeamB_R2 (scoreTeamB_Round2);
@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void R2_TeamB_Minus(View view) {
+    public void r2_TeamB_Minus(View view) {
         if (scoreTeamB_Round2 > 0) {
             scoreTeamB_Round2 = scoreTeamB_Round2 - 1;
             scoreTeamB_Final = scoreTeamB_Final - 1;
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Round 3, Team B
-    public void R3_TeamB_Plus(View view) {
+    public void r3_TeamB_Plus(View view) {
         scoreTeamB_Round3 = scoreTeamB_Round3 + 1;
         scoreTeamB_Final = scoreTeamB_Final + 1;
 
@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void R3_TeamB_Minus(View view) {
+    public void r3_TeamB_Minus(View view) {
         if (scoreTeamB_Round3 > 0) {
             scoreTeamB_Round3 = scoreTeamB_Round3 - 1;
             scoreTeamB_Final = scoreTeamB_Final - 1;
@@ -258,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
 
     //* RESET
 
-    public void ResetScore(View view) {
+    public void resetScore(View view) {
         scoreTeamA_Round1 = 0;
         scoreTeamA_Round2 = 0;
         scoreTeamA_Round3 = 0;
@@ -278,7 +278,11 @@ public class MainActivity extends AppCompatActivity {
         teamB_name = "";
         displayTeamAName (teamA_name);
         displayTeamBName (teamB_name);
-        getCurrentFocus ().clearFocus ();
+
+        View currentFocus = getCurrentFocus ();
+        if (currentFocus != null) {
+            currentFocus.clearFocus ();
+        }
 
 
     }
